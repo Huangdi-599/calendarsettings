@@ -1,9 +1,10 @@
-// src/App.tsx
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
-import Calendar from './components/Calendar';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Calendar from './components/Calendar'; 
+import LeadPage from './components/LeadPage';
 
-// Define your custom theme with the primary color
+// Define the primary color
 const theme = createTheme({
   palette: {
     primary: {
@@ -15,11 +16,17 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline /> {/* Resets CSS defaults */}
-      <Calendar />
+      <CssBaseline />
+      <Router>
+        <Routes>
+          {/* Calendar page (default) */}
+          <Route path="/" element={<Calendar />} />
+          {/* LeadPage component */}
+          <Route path="/leadpage" element={<LeadPage />} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }
 
 export default App;
-
