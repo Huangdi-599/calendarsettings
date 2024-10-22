@@ -4,10 +4,10 @@ import { HighHiringIntentIcon, MailIcon, PaymentVerifiedIcon, PhoneIcon } from '
 
 const LeadPage: React.FC = () => {
   return (
-    <Box className="tw-w-full tw-bg-gray-100 tw-p-8 tw-flex tw-justify-center tw-items-center tw-min-h-screen">
-      <Box className="tw-bg-white tw-rounded-lg tw-shadow-lg tw-w-full tw-max-w-3xl tw-p-6 tw-relative">
+    <Box className="tw-w-full tw-p-8 tw-flex tw-justify-center tw-items-center tw-min-h-screen">
+      <Box className="tw-bg-white tw-rounded-lg tw-w-full tw-max-w-7xl tw-p-6 tw-relative">
         {/* Header Section */}
-        <Box className="tw-flex tw-justify-between tw-items-center tw-mb-4">
+        <Box className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-mt-24">
           <Typography variant="h5" component="h1" className="tw-font-bold">
             Griff
           </Typography>
@@ -55,12 +55,10 @@ const LeadPage: React.FC = () => {
         </Typography>
         <Box className="tw-flex tw-gap-4 tw-mb-6">
           <Box className="tw-flex tw-items-center tw-gap-2">
-            <PaymentVerifiedIcon /> {/* Render the PaymentVerifiedIcon */}
-            {/* <Typography variant="body2">Payment verified</Typography> */}
+            <PaymentVerifiedIcon /> 
           </Box>
           <Box className="tw-flex tw-items-center tw-gap-2">
-            <HighHiringIntentIcon /> {/* Render the HighHiringIntentIcon */}
-            {/* <Typography variant="body2">High hiring intent</Typography> */}
+            <HighHiringIntentIcon />
           </Box>
         </Box>
 
