@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
-import { Phone, Email } from '@mui/icons-material';
+import { HighHiringIntentIcon, MailIcon, PaymentVerifiedIcon, PhoneIcon } from './Badges';
 
 const LeadPage: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const LeadPage: React.FC = () => {
         </Box>
 
         {/* Service and Location */}
-        <Typography variant="subtitle1" className="tw-mb-1">
+        <Typography variant="subtitle1" className="tw-mb-2">
           Web Design
         </Typography>
         <Typography variant="body2" className="tw-text-gray-500 tw-mb-4">
@@ -28,13 +28,13 @@ const LeadPage: React.FC = () => {
         </Typography>
 
         {/* Contact Information */}
-        <Box className="tw-flex tw-gap-4 tw-mb-6">
+        <Box className="tw-flex tw-flex-col tw-gap-2 tw-mb-6 tw-mt-6">
           <Box className="tw-flex tw-items-center tw-gap-2">
-            <Phone />
+            <PhoneIcon/>
             <Typography variant="body2">081*********</Typography>
           </Box>
           <Box className="tw-flex tw-items-center tw-gap-2">
-            <Email />
+            <MailIcon />
             <Typography variant="body2">c*******@c****.com</Typography>
           </Box>
         </Box>
@@ -50,22 +50,26 @@ const LeadPage: React.FC = () => {
         </Box>
 
         {/* Highlights Section */}
-        <Typography variant="h6" className="tw-mb-2">
+        <Typography variant="subtitle1" className="tw-mb-2 tw-font-bold">
           Highlights
         </Typography>
         <Box className="tw-flex tw-gap-4 tw-mb-6">
           <Box className="tw-flex tw-items-center tw-gap-2">
-            <span className="tw-bg-blue-100 tw-text-blue-600 tw-rounded-full tw-px-2 tw-text-xs">Payment verified</span>
+            <PaymentVerifiedIcon /> {/* Render the PaymentVerifiedIcon */}
+            {/* <Typography variant="body2">Payment verified</Typography> */}
           </Box>
           <Box className="tw-flex tw-items-center tw-gap-2">
-            <span className="tw-bg-green-100 tw-text-green-600 tw-rounded-full tw-px-2 tw-text-xs">High hiring intent</span>
+            <HighHiringIntentIcon /> {/* Render the HighHiringIntentIcon */}
+            {/* <Typography variant="body2">High hiring intent</Typography> */}
           </Box>
         </Box>
 
         {/* Details Section */}
-        <Typography variant="h6" className="tw-mb-2">
-          Details
+        <Typography variant="subtitle1" className="tw-mb-2 tw-font-bold">
+            Details
         </Typography>
+        <hr className="tw-border-t tw-border-gray-300 tw-mb-4" />
+
         <Box className="tw-text-gray-600 tw-space-y-2">
           <Typography variant="body2" className="tw-text-gray-400">
             What platform will you be using?
