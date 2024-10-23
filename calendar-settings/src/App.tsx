@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Calendar from './components/Calendar'; 
 import LeadPage from './components/LeadPage';
 import Leads from './components/Leads';
+import BuyCredits from './components/BuyCredits';
 
 // Define the primary color
 const theme = createTheme({
@@ -26,6 +27,8 @@ function App() {
           <Route path="/leadpage" element={<LeadPage />} />
           {/* Leads page */}
           <Route path="/leads" element={<Leads />} />
+          {/*Buy Credits page */}
+          <Route path="/buy-credits" element={<BuyCredits />} />
         </Routes>
       </Router>
     </ThemeProvider>
