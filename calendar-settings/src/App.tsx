@@ -5,6 +5,7 @@ import Calendar from './components/Calendar';
 import LeadPage from './components/LeadPage';
 import Leads from './components/Leads';
 import BuyCredits from './components/BuyCredits';
+import PaymentMethod from './components/PaymentMethod';
 
 // Define the primary color
 const theme = createTheme({
@@ -29,6 +30,8 @@ function App() {
           <Route path="/leads" element={<Leads />} />
           {/*Buy Credits page */}
           <Route path="/buy-credits" element={<BuyCredits />} />
+          {/* Payment page */}
+          <Route path="/payment" element={<PaymentMethod />} />
         </Routes>
       </Router>
     </ThemeProvider>
