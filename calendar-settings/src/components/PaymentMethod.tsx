@@ -3,7 +3,7 @@ import { Box, Button, TextField } from '@mui/material';
 
 const PaymentMethod: React.FC = () => {
   return (
-    <Box className="tw-max-w-7xl tw-bg-white tw-shadow-lg tw-rounded-lg tw-p-8 tw-mx-auto tw-mt-10">
+    <Box className="tw-max-w-7xl tw-bg-white tw-rounded-lg tw-p-8 tw-mx-auto tw-mt-10">
       {/* Title */}
       <h1 className="tw-text-3xl tw-font-bold tw-mb-6">Payment Method</h1>
 
