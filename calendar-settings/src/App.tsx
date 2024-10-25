@@ -5,6 +5,7 @@ import Calendar from './components/Calendar';
 import LeadList from './components/Leadlist';
 import Dashboard from './components/Dashboard';
 import DashboardLayout from './components/DashboardLayout';
+import PurchasedLeads from './components/ PurchasedLeads';
 
 
 // Define your custom theme with the primary color
@@ -24,6 +25,7 @@ function App() {
       <LeadList/>
       <Dashboard/>
       < DashboardLayout/>
+      < PurchasedLeads/>
     </ThemeProvider>
   );
 }
