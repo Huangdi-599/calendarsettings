@@ -5,7 +5,8 @@ import Calendar from './components/Calendar';
 import LeadList from './components/Leadlist';
 import Dashboard from './components/Dashboard';
 import DashboardLayout from './components/DashboardLayout';
-import PurchasedLeads from './components/ PurchasedLeads';
+import PurchasedLeads from './components/PurchasedLeads';
+import Feedback from './components/Feedback';
 
 
 // Define your custom theme with the primary color
@@ -26,6 +27,7 @@ function App() {
       <Dashboard/>
       < DashboardLayout/>
       < PurchasedLeads/>
+      <Feedback/>
     </ThemeProvider>
   );
 }
