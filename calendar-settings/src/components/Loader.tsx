@@ -1,18 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { PuzzleBlack, PuzzleBlack2, PuzzleBlack3, PuzzleBlack5 } from './Badges';
 
+const generateRandomPieces = (count: number) => {
+  const pieces = [];
+  for (let i = 0; i < count; i++) {
+    // Randomly select a puzzle piece
+    const pieceType = [PuzzleBlack, PuzzleBlack2, PuzzleBlack3][
+      Math.floor(Math.random() * 3)
+    ];
+    // Random position and duration
+    const randomLeft = Math.random() * 100; // Percentage for left position (0% to 100%)
+    const randomDuration = Math.random() * 1 + 2; // Duration between 2 and 3 seconds
+    pieces.push({ pieceType, randomLeft, randomDuration });
+  }
+  return pieces;
+};
+
 const fallVariant = {
-  hidden: { y: -50, opacity: 0 },
-  visible: (custom: number) => ({
-    y: [custom * -20, 400],
+  hidden: { y: -100, opacity: 0 }, // Start from above the viewport
+  visible: (custom: { randomDuration: number }) => ({
+    y: [Math.random() * -100 - 100, 1000], // End position lower down the page
     opacity: [1, 0],
-    transition: { duration: 3, delay: custom * 0.5, repeat: Infinity },
+    transition: {
+      duration: custom.randomDuration,
+      repeat: Infinity,
+    },
   }),
 };
 
 const Loader: React.FC = () => {
+  const [pieces, setPieces] = useState(generateRandomPieces(20));
+
+  // Regenerate the pieces every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPieces(generateRandomPieces(20));
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Box className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-h-screen tw-bg-white tw-max-w-7xl tw-mx-auto">
       {/* Header with Logo and Title */}
@@ -32,54 +60,31 @@ const Loader: React.FC = () => {
         <Typography variant="h4" className="tw-font-bold tw-mb-6">
           Welcome to Puzzle Piece Solution
         </Typography>
-        <Button variant="outlined" className="tw-text-pink-500 tw-border-pink-500 tw-rounded-full tw-px-12 tw-py-3">
+        <Button
+          variant="outlined"
+          className="tw-text-pink-500 tw-border-pink-500 tw-rounded-full tw-px-12 tw-py-3"
+        >
           Get Started
         </Button>
       </Box>
 
       {/* Falling Puzzle Pieces */}
-      <Box className="tw-absolute tw-top-10 tw-left-1/4">
+      {pieces.map(({ pieceType: Piece, randomLeft, randomDuration }, index) => (
         <Box
+          key={index}
           component={motion.div}
-          custom={0}
+          custom={{ randomDuration }}
           initial="hidden"
           animate="visible"
           variants={fallVariant}
-          className="tw-w-12 tw-h-12"
+          className="tw-absolute tw-w-12 tw-h-12"
+          style={{ left: `${randomLeft}%`, top: 0 }}
         >
           <Box className="tw-w-full tw-h-full">
-            <PuzzleBlack />
+            <Piece />
           </Box>
         </Box>
-      </Box>
-      <Box className="tw-absolute tw-top-10 tw-left-1/2">
-        <Box
-          component={motion.div}
-          custom={1}
-          initial="hidden"
-          animate="visible"
-          variants={fallVariant}
-          className="tw-w-12 tw-h-12"
-        >
-          <Box className="tw-w-full tw-h-full">
-            <PuzzleBlack2 />
-          </Box>
-        </Box>
-      </Box>
-      <Box className="tw-absolute tw-top-10 tw-right-1/4">
-        <Box
-          component={motion.div}
-          custom={2}
-          initial="hidden"
-          animate="visible"
-          variants={fallVariant}
-          className="tw-w-12 tw-h-12"
-        >
-          <Box className="tw-w-full tw-h-full">
-            <PuzzleBlack3 />
-          </Box>
-        </Box>
-      </Box>
+      ))}
     </Box>
   );
 };
