@@ -19,10 +19,10 @@ const generateStaticPieces = (count: number) => {
 
 // Motion variant for the falling effect
 const fallVariant = {
-  hidden: { y: -200, opacity: 1 }, // Start above the viewport
+  hidden: { y: -200, opacity: 1 },
   visible: (custom: { randomDuration: number }) => ({
-    y: [0, 1200], // Fall to 1000px to cover the height of the viewport
-    opacity: [1, 1, 0], // Fade out near the bottom
+    y: [0, 1200], 
+    opacity: [1, 1, 0],
     transition: {
       duration: custom.randomDuration,
       ease: 'linear',
@@ -32,7 +32,7 @@ const fallVariant = {
 };
 
 const Loader: React.FC = () => {
-  const pieces = generateStaticPieces(50); // Set a fixed number of pieces
+  const pieces = generateStaticPieces(100);
 
   return (
     <Box className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-h-screen tw-bg-white tw-max-w-7xl tw-mx-auto overflow-hidden">
