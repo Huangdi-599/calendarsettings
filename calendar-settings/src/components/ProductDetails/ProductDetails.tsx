@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Button, Typography, Chip, Grid } from '@mui/material';
+import { motion } from 'framer-motion';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
@@ -12,12 +13,15 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
         {/* Left Section: Product Image */}
         <Grid item xs={3}>
           <Box className="tw-relative">
-          <img
+          <motion.img
             src="https://i.postimg.cc/rwm6FtY6/hset.png"
             alt="Razer Kraken Kitty Edt Gaming Headset Quartz"
-            className="tw-rounded-lg tw-w-full tw-h-auto hover:tw-jello-diagonal tw-cursor-pointer"
-          />
-
+            className="tw-rounded-lg tw-w-full tw-h-auto tw-cursor-pointer"
+            whileHover={{
+              rotateY: [0, 20, -5, 20, -10, 5, -15, 0],  // Forward and backward twist
+              transition: { duration: 0.6, ease: 'easeInOut', repeat: Infinity },
+            }}           
+            />
             <p className="tw-text-center tw-text-gray-500 tw-mt-2 tw-text-[12px]">
               Click image to zoom
             </p>
@@ -26,10 +30,18 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
 
         {/* Right Section: Product Details */}
         <Grid item xs={9}>
-        <Chip 
-          label="Free shipping" 
-          className="tw-bg-black tw-text-white tw-text-xs tw-mb-2 tw-rounded-full tw-font-bold"
-          />          
+        <motion.div
+          whileHover={{
+            x: [-3, 3, -3, 3, 0], // Horizontal shake motion
+            transition: { duration: 0.4, repeat: Infinity, ease: "easeInOut" },
+          }}
+        >
+          <Chip
+            label="Free shipping"
+            className="tw-bg-black tw-text-white tw-text-xs tw-mb-2 tw-rounded-full tw-font-bold"
+          />
+        </motion.div>
+        
           <h3 className="tw-font-extrabold tw-pt-5 tw-text-lg">
             Razer Kraken Kitty Edt Gaming
           </h3>
@@ -37,8 +49,15 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
             Headset Quartz
           </h3>
           <Typography className="tw-text-gray-500 tw-line-through tw-text-sm tw-pt-6">$200</Typography>
-          <p className="tw-text-pink-500 tw-font-bold tw-text-5xl">$150</p>
-          <p className="tw-text-black tw-text-sm tw-mt-2 tw-pb-10 tw-font-medium">
+          <motion.p
+            className="tw-text-pink-500 tw-font-bold tw-text-5xl"
+            whileHover={{
+              x: [-4, 4, -4, 4, 0], // Horizontal shake motion
+              transition: { duration: 0.3, repeat: Infinity, ease: "easeInOut" },
+            }}
+          >
+            $150
+          </motion.p>          <p className="tw-text-black tw-text-sm tw-mt-2 tw-pb-10 tw-font-medium">
             The offer is valid until April 25 or as long as stock lasts
           </p>
 
