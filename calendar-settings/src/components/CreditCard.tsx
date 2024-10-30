@@ -80,17 +80,20 @@ const CreditCard: React.FC<CreditCardProps> = ({
         </div>
 
         {/* Back Side of the Card */}
-        <div
-        className="card-item__side -back"
-        style={{ backgroundImage: `url(${cardBackground})` }}
-        >
+        <div className="card-item__side -back" style={{ backgroundImage: `url(${cardBackground})` }}>
         <div className="card-item__band"></div>
+
+        {/* CVV Label positioned above the CVV field */}
         <div className="card-item__cvv-container">
             <span className="card-item__cvv-label">CVV</span>
-            <span className="card-item__cvv">{cvv || '***'}</span>
+            <span className="card-item__cvv">{cvv ? '***' : ''}</span> {/* Show '***' only if cvv has a value */}
         </div>
+
+        {/* Card Type Logo at the bottom left */}
         <img src={cardType} alt="Card Type" className="card-item__type-back" />
         </div>
+
+
 
       </div>
     </div>
