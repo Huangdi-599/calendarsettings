@@ -8,6 +8,7 @@ import BuyCredits from './components/BuyCredits';
 import PaymentMethod from './components/PaymentMethod';
 import Loader from './components/Loader';
 import Payment from './components/Payment';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 // Define the primary color
 const theme = createTheme({
@@ -38,6 +39,8 @@ function App() {
           <Route path="/loader" element={<Loader />} />
           {/* Payment */}
           <Route path="/pay" element={<Payment />} />
+          {/* Product Details */}
+          <Route path='/product-details' element={<ProductDetails />} />
         </Routes>
       </Router>
     </ThemeProvider>
