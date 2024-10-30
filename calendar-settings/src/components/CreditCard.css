@@ -63,16 +63,7 @@
     top: 10px;
     right: 10px;
   }
-
-  /* .card-item__type-back {
-    max-width: 100px;
-    position: absolute;
-    display: flex;
-    justify-content: flex-end;
-    top: 10px;
-    right: 10px;
-  }
-   */
+  
   .card-item__details {
     display: flex;
     flex-direction: column;
@@ -159,14 +150,17 @@
   .card-item__cvv-container {
     position: relative;
     display: flex;
+    max-width: auto;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 100px;
+    padding: 0px;
   }
   
   .card-item__cvv-label {
     position: absolute;
-    right: 15px;
+    margin-bottom: 70px;
+    right: 20px;
     font-size: 14px;
     color: #fff;
     text-transform: uppercase;
@@ -191,16 +185,10 @@
   .card-item__type-back {
     position: relative;
     padding-left: 50px;
-    margin-left: auto;
+    margin-left: 230px;
     top: 0px;
     height: 50px;
     object-fit: contain;
-  }
-  
-  /* Animation for CVV digits */
-  @keyframes secureDots {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
   }
   
   .card-item__cvv.secure {
