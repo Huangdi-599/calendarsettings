@@ -64,7 +64,7 @@
     right: 10px;
   }
 
-  .card-item__type-back {
+  /* .card-item__type-back {
     max-width: 100px;
     position: absolute;
     display: flex;
@@ -72,7 +72,7 @@
     top: 10px;
     right: 10px;
   }
-  
+   */
   .card-item__details {
     display: flex;
     flex-direction: column;
@@ -136,31 +136,73 @@
   }  
   
   
+  .card-item__side.-back {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+  
   .card-item__band {
     width: 100%;
-    height: 40px;
-    background-color: black;
+    padding: 0%;
+    height: 45px;
+    background-color: #000;
     margin-top: 20px;
+    position: absolute; 
+    left: 0; 
+    right: 0;
   }
   
   .card-item__cvv-container {
+    position: relative;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30px;
   }
   
   .card-item__cvv-label {
-    font-size: 0.9em;
-    color: #ccc;
-    margin-right: 8px;
+    position: absolute;
+    right: 15px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
   }
   
   .card-item__cvv {
-    font-size: 1.2em;
+    width: 90%;
+    max-width: 400px;
+    height: 45px;
     background: #fff;
-    color: #333;
-    padding: 5px 10px;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #000;
   }
   
+  .card-item__type-back {
+    position: relative;
+    padding-left: 50px;
+    margin-left: auto;
+    top: 0px;
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  /* Animation for CVV digits */
+  @keyframes secureDots {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .card-item__cvv.secure {
+    animation: secureDots 0.3s ease forwards;
+  }
