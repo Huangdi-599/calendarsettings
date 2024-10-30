@@ -80,6 +80,13 @@
     text-align: center;
     margin: auto; /* Center it vertically */
     cursor: pointer;
+    border: 2px solid transparent; /* Initial transparent border */
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+
+  .card-item__number.focused {
+    border-color: white; /* White border when focused */
   }
   
   .card-item__info {

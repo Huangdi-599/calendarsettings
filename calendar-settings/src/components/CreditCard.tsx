@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import './CreditCard.css';
 import chipImage from '../assets/chip.png';
 import visaImage from '../assets/visa.png';
@@ -35,6 +35,8 @@ const CreditCard: React.FC<CreditCardProps> = ({
   cvv,
   isFlipped,
 }) => {
+  const [isFocused, setIsFocused] = useState(false);
+
   const cardType = useMemo(() => {
     if (/^4/.test(cardNumber)) return visaImage;
     if (/^5[1-5]/.test(cardNumber)) return mastercardImage;
@@ -61,40 +63,42 @@ const CreditCard: React.FC<CreditCardProps> = ({
             <img src={chipImage} alt="Chip" className="card-item__chip" />
             <img src={cardType} alt="Card Type" className="card-item__type" />
           </div>
+          
           <div className="card-item__details">
-        <div className="card-item__number">{cardNumber || '#### #### #### ####'}</div>
-        <div className="card-item__info">
-            <div className="card-item__name-section">
-            <div className="card-item__label">Card Holder</div>
-            <div className="card-item__name">{cardHolder || 'FULL NAME'}</div>
+            <div
+              className={`card-item__number ${isFocused ? 'focused' : ''}`}
+              onClick={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              tabIndex={0}
+            >
+              {cardNumber || '#### #### #### ####'}
             </div>
-            <div className="card-item__expiry-section">
-            <div className="card-item__label">Expires</div>
-            <div className="card-item__expiry">
-                {expiryMonth || 'MM'}/{expiryYear || 'YY'}
+            <div className="card-item__info">
+              <div className="card-item__name-section">
+                <div className="card-item__label">Card Holder</div>
+                <div className="card-item__name">{cardHolder || 'FULL NAME'}</div>
+              </div>
+              <div className="card-item__expiry-section">
+                <div className="card-item__label">Expires</div>
+                <div className="card-item__expiry">
+                  {expiryMonth || 'MM'}/{expiryYear || 'YY'}
+                </div>
+              </div>
             </div>
-            </div>
-        </div>
-        </div>
-
+          </div>
         </div>
 
         {/* Back Side of the Card */}
         <div className="card-item__side -back" style={{ backgroundImage: `url(${cardBackground})` }}>
-            <div className="card-item__band"></div>
-            
-            <div className="card-item__cvv-container">
-                <span className="card-item__cvv">
-                {cvv ? '***' : ''}
-                </span>
-                <span className="card-item__cvv-label">CVV</span>
-            </div>
-            
-            <img src={cardType} alt="Card Type" className="card-item__type-back" />
+          <div className="card-item__band"></div>
+          <div className="card-item__cvv-container">
+            <span className="card-item__cvv">
+              {cvv ? '***' : ''}
+            </span>
+            <span className="card-item__cvv-label">CVV</span>
+          </div>
+          <img src={cardType} alt="Card Type" className="card-item__type-back" />
         </div>
-
-
-
       </div>
     </div>
   );
