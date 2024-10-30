@@ -62,28 +62,36 @@ const CreditCard: React.FC<CreditCardProps> = ({
             <img src={cardType} alt="Card Type" className="card-item__type" />
           </div>
           <div className="card-item__details">
-            <div className="card-item__number">{cardNumber || '#### #### #### ####'}</div>
-            <div className="card-item__info">
-              <div className="card-item__name">{cardHolder || 'FULL NAME'}</div>
-              <div className="card-item__expiry">
-                {expiryMonth || 'MM'}/{expiryYear || 'YY'}
-              </div>
+        <div className="card-item__number">{cardNumber || '#### #### #### ####'}</div>
+        <div className="card-item__info">
+            <div className="card-item__name-section">
+            <div className="card-item__label">Card Holder</div>
+            <div className="card-item__name">{cardHolder || 'FULL NAME'}</div>
             </div>
-          </div>
+            <div className="card-item__expiry-section">
+            <div className="card-item__label">Expires</div>
+            <div className="card-item__expiry">
+                {expiryMonth || 'MM'}/{expiryYear || 'YY'}
+            </div>
+            </div>
+        </div>
+        </div>
+
         </div>
 
         {/* Back Side of the Card */}
         <div
-          className="card-item__side -back"
-          style={{ backgroundImage: `url(${cardBackground})` }}
+        className="card-item__side -back"
+        style={{ backgroundImage: `url(${cardBackground})` }}
         >
-          <div className="card-item__band"></div>
-          <div className="card-item__cvv-container">
+        <div className="card-item__band"></div>
+        <div className="card-item__cvv-container">
             <span className="card-item__cvv-label">CVV</span>
             <span className="card-item__cvv">{cvv || '***'}</span>
-          </div>
-          <img src={cardType} alt="Card Type" className="card-item__type-back" />
         </div>
+        <img src={cardType} alt="Card Type" className="card-item__type-back" />
+        </div>
+
       </div>
     </div>
   );
