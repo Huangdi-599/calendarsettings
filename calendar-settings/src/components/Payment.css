@@ -1,33 +1,18 @@
-.card-container {
-    perspective: 1000px;
-    width: 100%;
-    height: 160px;
-    position: relative;
-  }
-  
-  .card-front,
-  .card-back {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden; /* Hide the back when not facing the viewer */
-    border-radius: 10px;
-    transition: transform 0.6s ease; /* Smooth transition for the flip effect */
-  }
-  
-  .card-front {
-    transform: rotateY(0deg); /* Default position for the front */
-  }
-  
-  .card-back {
-    transform: rotateY(180deg); /* Positioned behind initially */
-  }
-  
-  .card-container.flipped .card-front {
-    transform: rotateY(180deg); /* Rotate front side out of view */
-  }
-  
-  .card-container.flipped .card-back {
-    transform: rotateY(0deg); /* Bring back side into view */
-  }
-  
+Additional styling for specific focus and padding adjustments
+input {
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: #3d9cff;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(61, 156, 255, 0.5);
+}
+
+.MuiOutlinedInput-input {
+  padding-left: 16px;
+  padding-right: 16px;
+}
