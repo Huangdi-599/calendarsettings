@@ -11,6 +11,8 @@ import SignUpForm from './components/SignUpForm';
 import LoginForm from './components/LoginForm';
 import React from 'react';
 import PaymentSuccess from './components/PaymentSuccess';
+import PaymentFailure from './components/PaymentFailure';
+import PaymentRejected from './components/PaymentRejected';
 
 
 // Define your custom theme with the primary color
@@ -35,6 +37,8 @@ function App() {
       <PurchasedLeads/>
       <Feedback/>
       <PaymentSuccess/>
+      <PaymentFailure/>
+      <PaymentRejected/>
     </ThemeProvider>
   );
 }
